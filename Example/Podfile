@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'LLTokenPaySDK_Example' do
+  pod 'LLTokenPaySDK', :path => '../'
+
+  target 'LLTokenPaySDK_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
