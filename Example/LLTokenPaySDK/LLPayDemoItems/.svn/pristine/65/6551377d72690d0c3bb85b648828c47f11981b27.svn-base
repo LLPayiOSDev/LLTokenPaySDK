@@ -1,0 +1,34 @@
+//
+//  LLDemoTable.h
+//  LianLianPay
+//
+//  Created by EvenLam on 2017/8/15.
+//  Copyright © 2017年 LianLianPay. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import "LLTextField.h"
+#import "LLUIModel.h"
+
+typedef void(^DTBlock)();
+
+@interface LLDemoTable : UITableView
+
+- (instancetype)initWithFrame:(CGRect)frame;
+
+- (void)addTarget: (id)target action:(SEL)action;
+
+@property (nonatomic, strong) LLUIModel *uiModel;
+
+@property (nonatomic, strong) NSMutableDictionary *dic;
+
+@property (nonatomic, strong) NSDictionary *fieldsData;
+
+- (LLTextField *)field: (NSString *)key;
+
+- (void)configWithPlist: (NSString *)plist;
+
+@property (nonatomic, copy) DTBlock headerHide;
+@property (nonatomic, copy) DTBlock headerShow;
+
+@end

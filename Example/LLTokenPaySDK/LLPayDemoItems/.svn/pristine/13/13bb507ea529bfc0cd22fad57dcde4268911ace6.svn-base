@@ -1,0 +1,29 @@
+//
+//  LLUIModel.h
+//  LianLianPay
+//
+//  Created by EvenLam on 2017/8/15.
+//  Copyright © 2017年 LianLianPay. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@interface LLUIModel : NSObject
+
+- (instancetype)initWithPlist: (NSString *)name;
+
+@property (nonatomic, strong) NSString *headerTitle;
+@property (nonatomic, strong) NSString *footerTitle;
+@property (nonatomic, strong) NSString *downloadUrl;
+@property (nonatomic, strong) NSString *detail;
+@property (nonatomic, strong) NSArray *textFields;
+@property (nonatomic, strong) NSArray *merchantFields;
+@property (nonatomic, strong) NSArray *userFields;
+@property (nonatomic, strong) id target;
+
+- (NSDictionary *)getFieldsData;
+- (void)reloadFields;
+- (NSDictionary *)fieldsDataWithArray: (NSArray *)arr;
+- (void)parseFields;
+
+@end

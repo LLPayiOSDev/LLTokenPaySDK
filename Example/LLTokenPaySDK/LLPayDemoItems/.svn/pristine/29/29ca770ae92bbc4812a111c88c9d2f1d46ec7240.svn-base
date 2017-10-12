@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>footerTitle</key>
+	<string>下一步</string>
+	<key>headerTitle</key>
+	<string>钱包开户</string>
+	<key>detail</key>
+	<string></string>
+	<key>downloadUrl</key>
+	<string></string>
+	<key>textFields</key>
+	<array>
+		<string>oid_partner</string>
+		<string>user_id</string>
+		<string>name_user</string>
+		<string>no_idcard</string>
+		<string>type_idcard</string>
+		<string>mob_bind</string>
+		<string>type_user</string>
+		<string>level_auth</string>
+	</array>
+</dict>
+</plist>

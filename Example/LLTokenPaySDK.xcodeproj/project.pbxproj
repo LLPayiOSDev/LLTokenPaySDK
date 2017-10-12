@@ -23,6 +23,18 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
+		835E2C441F8F089600109A1E /* LLTokenPayUI.plist in Sources */ = {isa = PBXBuildFile; fileRef = 835E2C421F8F078600109A1E /* LLTokenPayUI.plist */; };
+		835E2C451F8F089600109A1E /* LLDemoBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 835E2C2C1F8F078200109A1E /* LLDemoBaseViewController.m */; };
+		835E2C461F8F089600109A1E /* LLPayResultInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 835E2C2E1F8F078200109A1E /* LLPayResultInfoVC.m */; };
+		835E2C471F8F089600109A1E /* LLInputFields.plist in Sources */ = {isa = PBXBuildFile; fileRef = 835E2C301F8F078200109A1E /* LLInputFields.plist */; };
+		835E2C481F8F089600109A1E /* LLPayUI.plist in Sources */ = {isa = PBXBuildFile; fileRef = 835E2C311F8F078200109A1E /* LLPayUI.plist */; };
+		835E2C491F8F089600109A1E /* LLTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 835E2C341F8F078200109A1E /* LLTextField.m */; };
+		835E2C4A1F8F089600109A1E /* LLUIModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 835E2C361F8F078200109A1E /* LLUIModel.m */; };
+		835E2C4B1F8F089600109A1E /* LLPayUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 835E2C3A1F8F078200109A1E /* LLPayUtil.m */; };
+		835E2C4C1F8F089600109A1E /* LLDemoTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 835E2C3D1F8F078200109A1E /* LLDemoTable.m */; };
+		835E2C4D1F8F089600109A1E /* LLEnvCtrlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 835E2C3F1F8F078200109A1E /* LLEnvCtrlView.m */; };
+		835E2C4E1F8F089600109A1E /* LLHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 835E2C411F8F078200109A1E /* LLHeaderView.m */; };
+		835E2C4F1F8F08B600109A1E /* libRsaCrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 835E2C381F8F078200109A1E /* libRsaCrypto.a */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +50,7 @@
 
 /* Begin PBXFileReference section */
 		0FAF87BEEA0C8A3EF6C80FAE /* Pods-LLTokenPaySDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LLTokenPaySDK_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LLTokenPaySDK_Example/Pods-LLTokenPaySDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		270F3F5FDC31806C70715FF2 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		270F3F5FDC31806C70715FF2 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		282F22D07BFF8CCF30F1C5BF /* Pods-LLTokenPaySDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LLTokenPaySDK_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-LLTokenPaySDK_Example/Pods-LLTokenPaySDK_Example.release.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* LLTokenPaySDK_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LLTokenPaySDK_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -60,13 +72,37 @@
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		835E2C251F8F026D00109A1E /* LLTokenPaySDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LLTokenPaySDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		835E2C271F8F034F00109A1E /* LLTokenPaySDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LLTokenPaySDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		835E2C2B1F8F078200109A1E /* LLDemoBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LLDemoBaseViewController.h; sourceTree = "<group>"; };
+		835E2C2C1F8F078200109A1E /* LLDemoBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LLDemoBaseViewController.m; sourceTree = "<group>"; };
+		835E2C2D1F8F078200109A1E /* LLPayResultInfoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LLPayResultInfoVC.h; sourceTree = "<group>"; };
+		835E2C2E1F8F078200109A1E /* LLPayResultInfoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LLPayResultInfoVC.m; sourceTree = "<group>"; };
+		835E2C2F1F8F078200109A1E /* LLConsts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LLConsts.h; sourceTree = "<group>"; };
+		835E2C301F8F078200109A1E /* LLInputFields.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = LLInputFields.plist; sourceTree = "<group>"; };
+		835E2C311F8F078200109A1E /* LLPayUI.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = LLPayUI.plist; sourceTree = "<group>"; };
+		835E2C331F8F078200109A1E /* LLTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LLTextField.h; sourceTree = "<group>"; };
+		835E2C341F8F078200109A1E /* LLTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LLTextField.m; sourceTree = "<group>"; };
+		835E2C351F8F078200109A1E /* LLUIModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LLUIModel.h; sourceTree = "<group>"; };
+		835E2C361F8F078200109A1E /* LLUIModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LLUIModel.m; sourceTree = "<group>"; };
+		835E2C381F8F078200109A1E /* libRsaCrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libRsaCrypto.a; sourceTree = "<group>"; };
+		835E2C391F8F078200109A1E /* LLPayUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LLPayUtil.h; sourceTree = "<group>"; };
+		835E2C3A1F8F078200109A1E /* LLPayUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LLPayUtil.m; sourceTree = "<group>"; };
+		835E2C3C1F8F078200109A1E /* LLDemoTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LLDemoTable.h; sourceTree = "<group>"; };
+		835E2C3D1F8F078200109A1E /* LLDemoTable.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LLDemoTable.m; sourceTree = "<group>"; };
+		835E2C3E1F8F078200109A1E /* LLEnvCtrlView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LLEnvCtrlView.h; sourceTree = "<group>"; };
+		835E2C3F1F8F078200109A1E /* LLEnvCtrlView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LLEnvCtrlView.m; sourceTree = "<group>"; };
+		835E2C401F8F078200109A1E /* LLHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LLHeaderView.h; sourceTree = "<group>"; };
+		835E2C411F8F078200109A1E /* LLHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LLHeaderView.m; sourceTree = "<group>"; };
+		835E2C421F8F078600109A1E /* LLTokenPayUI.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = LLTokenPayUI.plist; sourceTree = "<group>"; };
+		835E2C501F8F0E4000109A1E /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8F432476E714D6A13E530AFE /* Pods-LLTokenPaySDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LLTokenPaySDK_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LLTokenPaySDK_Tests/Pods-LLTokenPaySDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		B6FB9F1E4732920D278D342F /* Pods_LLTokenPaySDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LLTokenPaySDK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B76372D79A91E1091C38C913 /* Pods-LLTokenPaySDK_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LLTokenPaySDK_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LLTokenPaySDK_Tests/Pods-LLTokenPaySDK_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		B9855E6D4ED2CE67556F07CC /* LLTokenPaySDK.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = LLTokenPaySDK.podspec; path = ../LLTokenPaySDK.podspec; sourceTree = "<group>"; };
+		B9855E6D4ED2CE67556F07CC /* LLTokenPaySDK.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LLTokenPaySDK.podspec; path = ../LLTokenPaySDK.podspec; sourceTree = "<group>"; };
 		E2C8BE9EC9633FAA166BC351 /* Pods_LLTokenPaySDK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LLTokenPaySDK_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E8900ECE4262D03ADFD41289 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		E8900ECE4262D03ADFD41289 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				835E2C4F1F8F08B600109A1E /* libRsaCrypto.a in Frameworks */,
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
@@ -119,6 +156,8 @@
 		6003F58C195388D20070C39A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				835E2C271F8F034F00109A1E /* LLTokenPaySDK.framework */,
+				835E2C251F8F026D00109A1E /* LLTokenPaySDK.framework */,
 				6003F58D195388D20070C39A /* Foundation.framework */,
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
@@ -132,13 +171,10 @@
 		6003F593195388D20070C39A /* Example for LLTokenPaySDK */ = {
 			isa = PBXGroup;
 			children = (
-				6003F59C195388D20070C39A /* LLAppDelegate.h */,
-				6003F59D195388D20070C39A /* LLAppDelegate.m */,
-				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
+				835E2C421F8F078600109A1E /* LLTokenPayUI.plist */,
 				6003F5A5195388D20070C39A /* LLViewController.h */,
 				6003F5A6195388D20070C39A /* LLViewController.m */,
-				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
-				6003F5A8195388D20070C39A /* Images.xcassets */,
+				835E2C291F8F078200109A1E /* LLPayDemoItems */,
 				6003F594195388D20070C39A /* Supporting Files */,
 			);
 			name = "Example for LLTokenPaySDK";
@@ -148,6 +184,11 @@
 		6003F594195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
+				6003F59C195388D20070C39A /* LLAppDelegate.h */,
+				6003F59D195388D20070C39A /* LLAppDelegate.m */,
+				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
+				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F595195388D20070C39A /* LLTokenPaySDK-Info.plist */,
 				6003F596195388D20070C39A /* InfoPlist.strings */,
 				6003F599195388D20070C39A /* main.m */,
@@ -179,10 +220,70 @@
 			isa = PBXGroup;
 			children = (
 				B9855E6D4ED2CE67556F07CC /* LLTokenPaySDK.podspec */,
+				835E2C501F8F0E4000109A1E /* CHANGELOG.md */,
 				E8900ECE4262D03ADFD41289 /* README.md */,
 				270F3F5FDC31806C70715FF2 /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		835E2C291F8F078200109A1E /* LLPayDemoItems */ = {
+			isa = PBXGroup;
+			children = (
+				835E2C2A1F8F078200109A1E /* Controller */,
+				835E2C2F1F8F078200109A1E /* LLConsts.h */,
+				835E2C301F8F078200109A1E /* LLInputFields.plist */,
+				835E2C311F8F078200109A1E /* LLPayUI.plist */,
+				835E2C321F8F078200109A1E /* Model */,
+				835E2C371F8F078200109A1E /* Util */,
+				835E2C3B1F8F078200109A1E /* View */,
+			);
+			path = LLPayDemoItems;
+			sourceTree = "<group>";
+		};
+		835E2C2A1F8F078200109A1E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				835E2C2B1F8F078200109A1E /* LLDemoBaseViewController.h */,
+				835E2C2C1F8F078200109A1E /* LLDemoBaseViewController.m */,
+				835E2C2D1F8F078200109A1E /* LLPayResultInfoVC.h */,
+				835E2C2E1F8F078200109A1E /* LLPayResultInfoVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		835E2C321F8F078200109A1E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				835E2C331F8F078200109A1E /* LLTextField.h */,
+				835E2C341F8F078200109A1E /* LLTextField.m */,
+				835E2C351F8F078200109A1E /* LLUIModel.h */,
+				835E2C361F8F078200109A1E /* LLUIModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		835E2C371F8F078200109A1E /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				835E2C381F8F078200109A1E /* libRsaCrypto.a */,
+				835E2C391F8F078200109A1E /* LLPayUtil.h */,
+				835E2C3A1F8F078200109A1E /* LLPayUtil.m */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		835E2C3B1F8F078200109A1E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				835E2C3C1F8F078200109A1E /* LLDemoTable.h */,
+				835E2C3D1F8F078200109A1E /* LLDemoTable.m */,
+				835E2C3E1F8F078200109A1E /* LLEnvCtrlView.h */,
+				835E2C3F1F8F078200109A1E /* LLEnvCtrlView.m */,
+				835E2C401F8F078200109A1E /* LLHeaderView.h */,
+				835E2C411F8F078200109A1E /* LLHeaderView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		84820F1385DC94749FD994F7 /* Pods */ = {
@@ -250,6 +351,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = LLPayiOSDev;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = N27SETL2A3;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -318,9 +422,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-LLTokenPaySDK_Example/Pods-LLTokenPaySDK_Example-resources.sh",
+				"${PODS_ROOT}/../../LLTokenPaySDK/Assets/walletResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -403,6 +510,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				835E2C441F8F089600109A1E /* LLTokenPayUI.plist in Sources */,
+				835E2C451F8F089600109A1E /* LLDemoBaseViewController.m in Sources */,
+				835E2C461F8F089600109A1E /* LLPayResultInfoVC.m in Sources */,
+				835E2C471F8F089600109A1E /* LLInputFields.plist in Sources */,
+				835E2C481F8F089600109A1E /* LLPayUI.plist in Sources */,
+				835E2C491F8F089600109A1E /* LLTextField.m in Sources */,
+				835E2C4A1F8F089600109A1E /* LLUIModel.m in Sources */,
+				835E2C4B1F8F089600109A1E /* LLPayUtil.m in Sources */,
+				835E2C4C1F8F089600109A1E /* LLDemoTable.m in Sources */,
+				835E2C4D1F8F089600109A1E /* LLEnvCtrlView.m in Sources */,
+				835E2C4E1F8F089600109A1E /* LLHeaderView.m in Sources */,
 				6003F59E195388D20070C39A /* LLAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* LLViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
@@ -533,9 +651,15 @@
 			baseConfigurationReference = 0FAF87BEEA0C8A3EF6C80FAE /* Pods-LLTokenPaySDK_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = N27SETL2A3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LLTokenPaySDK/LLTokenPaySDK-Prefix.pch";
 				INFOPLIST_FILE = "LLTokenPaySDK/LLTokenPaySDK-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LLTokenPaySDK/LLPayDemoItems/Util",
+				);
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -548,9 +672,15 @@
 			baseConfigurationReference = 282F22D07BFF8CCF30F1C5BF /* Pods-LLTokenPaySDK_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = N27SETL2A3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LLTokenPaySDK/LLTokenPaySDK-Prefix.pch";
 				INFOPLIST_FILE = "LLTokenPaySDK/LLTokenPaySDK-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LLTokenPaySDK/LLPayDemoItems/Util",
+				);
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";

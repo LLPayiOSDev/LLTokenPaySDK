@@ -1,0 +1,6 @@
+framework module Pods_LLTokenPaySDK_Tests {
+  umbrella header "Pods-LLTokenPaySDK_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

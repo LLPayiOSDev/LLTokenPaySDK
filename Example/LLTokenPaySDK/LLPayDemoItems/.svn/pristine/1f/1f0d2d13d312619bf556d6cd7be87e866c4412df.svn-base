@@ -1,0 +1,201 @@
+//
+//  LLDemoTable.m
+//  LianLianPay
+//
+//  Created by EvenLam on 2017/8/15.
+//  Copyright © 2017年 LianLianPay. All rights reserved.
+//
+
+#import "LLDemoTable.h"
+#import "LLHeaderView.h"
+#import "LLConsts.h"
+
+@interface LLDemoTable () <UITableViewDelegate, UITableViewDataSource,UITextFieldDelegate>
+
+
+@property (nonatomic, strong) UIButton *payBtn;
+@property (nonatomic, strong) id target;
+
+@end
+
+@implementation LLDemoTable
+
+- (void)dealloc {
+    [self removeObserver:self forKeyPath:@"contentOffset"];
+}
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame style:UITableViewStyleGrouped];
+    if (self) {
+        self.delegate = self;
+        self.dataSource = self;
+        self.separatorStyle =  UITableViewCellSeparatorStyleSingleLine;
+        if ([UIDevice currentDevice].systemVersion.floatValue > 9.5) {
+            self.refreshControl = [[UIRefreshControl alloc] init];
+//            self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"刷新重置数据" attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14],NSForegroundColorAttributeName:LLColor}];
+            [self.refreshControl addTarget:self action:@selector(refreshTV) forControlEvents:UIControlEventValueChanged];
+        }
+        self.backgroundColor = kLLNavColor;
+        self.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+        [self addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
+    }
+    return self;
+}
+
+- (void)refreshTV {
+    [self.uiModel reloadFields];
+    [self reloadData];
+    [self.refreshControl endRefreshing];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"contentOffset"]) {
+        if (self.contentOffset.y > self.tableHeaderView.frame.size.height) {
+            !self.headerHide?:self.headerHide();
+        }else {
+            !self.headerShow?:self.headerShow();
+        }
+    }
+}
+
+- (void)configWithPlist: (NSString *)plist {
+    
+    self.uiModel = [[LLUIModel alloc] initWithPlist:plist];
+    self.uiModel.target = self.target;
+    [self.uiModel parseFields];
+    if (self.uiModel.headerTitle) {
+        self.tableHeaderView = [[LLHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, kLLHeaderViewHeight)
+                                                          withName:self.uiModel.headerTitle
+                                                            andUrl:self.uiModel.downloadUrl];
+    }
+    self.tableFooterView = [self footerView];
+}
+
+- (UIView *)footerView {
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 100)];
+    [view addSubview:self.payBtn];
+    [self.payBtn setTitle:self.uiModel.footerTitle forState:UIControlStateNormal];
+    return view;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWindowW, 60)];
+    view.backgroundColor = LLHexColor(0xffffff);
+    UILabel *label = [[UILabel alloc] init];
+    label.textColor = [UIColor blackColor];
+    label.frame = CGRectMake(12, 30, kWindowW, 30);
+    label.backgroundColor = LLHexColor(0xffffff);
+    label.font = [UIFont boldSystemFontOfSize:18];
+    label.text = @[@"商户信息",@"用户信息"][section];
+    [view addSubview:label];
+    return view;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 60;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 0.1;
+}
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 2;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if (section == 0) {
+        return self.uiModel.merchantFields.count;
+    }else {
+        return self.uiModel.userFields.count;
+    }
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *cellIdentifier = @"cellIdentifier";
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    if (indexPath.section == 0) {
+        LLTextField *field = self.uiModel.merchantFields[indexPath.row];
+        field.delegate = self;
+        [cell.contentView addSubview:field];
+    }else {
+        LLTextField *field = self.uiModel.userFields[indexPath.row];
+        field.delegate = self;
+        [cell.contentView addSubview:field];
+    }
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark - UITextFieldDelegate
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    self.contentSize = CGSizeMake(self.frame.size.width, self.contentSize.height + 300);
+    
+    CGPoint textfieldPoint = [textField convertPoint:CGPointMake(0, 22) toView:self];
+    
+    NSIndexPath *textIndex = [self indexPathForRowAtPoint:textfieldPoint];
+    CGRect rect = [self rectForRowAtIndexPath:textIndex];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self setContentOffset:CGPointMake(0, rect.origin.y + 64 + 44 - 216) animated:NO];
+    });
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    self.contentSize = CGSizeMake(self.frame.size.width, self.contentSize.height - 300);
+    [((LLTextField *)textField) cacheText];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+
+- (void)addTarget:(id)target action:(SEL)action {
+    self.target = target;
+    [self.payBtn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+}
+
+#pragma mark - Getter/Setter
+
+- (LLTextField *)field:(NSString *)key {
+    for (LLTextField *field in self.uiModel.textFields) {
+        if ([field.key isEqualToString:key]) {
+            return field;
+        }
+    }
+    return nil;
+}
+
+- (NSDictionary *)fieldsDataFromArray: (NSArray *)array {
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    for (NSString *key in array) {
+        NSString *value = [self field:key].text;
+        if (value.length > 0) {
+            [dic setObject:value forKey:key];
+        }
+    }
+    return [dic copy];
+}
+
+- (UIButton *)payBtn {
+    if (!_payBtn ) {
+        _payBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_payBtn setTitle:self.uiModel.footerTitle forState:UIControlStateNormal];
+        [_payBtn setBackgroundColor:LLColor];
+        [_payBtn setTitleColor:LLHexColor(0xFFFFFF) forState:UIControlStateNormal];
+        [_payBtn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
+        _payBtn.frame = CGRectMake(10, 30, self.frame.size.width-20, 44);
+        _payBtn.layer.cornerRadius = 22;
+        _payBtn.layer.masksToBounds = YES;
+    }
+    return _payBtn;
+}
+
+- (NSDictionary *)fieldsData {
+    return [self.uiModel getFieldsData];
+}
+
+@end

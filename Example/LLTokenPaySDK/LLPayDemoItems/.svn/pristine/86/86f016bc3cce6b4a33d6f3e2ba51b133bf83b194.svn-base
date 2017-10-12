@@ -1,0 +1,120 @@
+//
+//  LLDemoBaseViewController.m
+//  LLTokenPay
+//
+//  Created by EvenLam on 2017/9/21.
+//  Copyright © 2017年 LianLianPay. All rights reserved.
+//
+
+#import "LLDemoBaseViewController.h"
+
+@interface LLDemoBaseViewController ()
+
+@end
+
+@implementation LLDemoBaseViewController
+
+#pragma mark - life cycle
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self llNavConfig];
+    // Do any additional setup after loading the view.
+}
+
+- (void)llNavConfig {
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
+    self.view.backgroundColor = kLLNavColor;
+    self.navigationController.navigationBar.barTintColor = kLLNavColor;
+    [self.navigationController.navigationBar setBarStyle:UIBarStyleDefault];
+    self.navigationController.navigationBar.translucent = NO;
+    
+    if ([LLEnvCtrlView isDebug]) {
+        
+        UIButton *detailBtn = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        detailBtn.frame = CGRectMake(0, 0, 20, 20);
+        [detailBtn addTarget:self action:@selector(showSDKInfo) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *leftBBI = [[UIBarButtonItem alloc] initWithCustomView:detailBtn];
+        self.navigationItem.leftBarButtonItem = leftBBI;
+        
+        UIButton *setBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        setBtn.frame = CGRectMake(0, 0, 30, 30);
+        [setBtn setTitle:@"设置" forState:UIControlStateNormal];
+        [setBtn setTitleColor:LLColor forState:UIControlStateNormal];
+        setBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+        [setBtn addTarget:self action:@selector(configEnv) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *rightBBI = [[UIBarButtonItem alloc] initWithCustomView:setBtn];
+        self.navigationItem.rightBarButtonItem = rightBBI;
+    }
+}
+
+#pragma mark - private
+
+- (void)configEnv {
+    [LLEnvCtrlView show:YES];
+}
+
+- (void)llPaymentAction {
+    
+}
+
+extern NSString *kLLPaySDKBuildVersion;
+extern NSString *kLLPaySDKVersion;
+
+- (void)showSDKInfo {
+    
+    NSString *merchant = [self.tableView field:@"oid_partner"].text;
+    
+    NSDictionary *sdkInfoDic = @{@"BuildVersion":kLLPaySDKBuildVersion?:@"",
+                                 @"SDKVersion":kLLPaySDKVersion?:@"",
+                                 @"商户号":merchant?:@"",
+//                                 @"密钥":@"",
+                                 @"环境":[LLEnvCtrlView isTestEnv] ? @"测试环境" : @"正式环境",};
+    [self pushInfoVCWithTitle:@"SDKInfo" andDic:sdkInfoDic];
+}
+
+- (void)pushInfoVCWithTitle: (NSString *)title andDic: (NSDictionary *)dic {
+    LLPayResultInfoVC *vc = [[LLPayResultInfoVC alloc] initWithInfoDic:dic];
+    vc.payResultStr = title;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)llAlertWithMsg: (NSString *)msg {
+    [[[UIAlertView alloc] initWithTitle:@"提示" message:msg delegate:self cancelButtonTitle:@"好" otherButtonTitles: nil] show];
+}
+
+#pragma mark - getter
+
+- (LLDemoTable *)tableView {
+    if (!_tableView) {
+        _tableView = [[LLDemoTable alloc] initWithFrame:CGRectMake(0, 0, kWindowW, kWindowH- (self.navigationController.navigationBar.translucent?0:64))];
+        __weak typeof(self) wSelf = self;
+        _tableView.headerShow = ^{
+            wSelf.navigationController.navigationBar.barTintColor = LLHexColor(0xffffff);
+            wSelf.title = @"";
+        };
+        _tableView.headerHide = ^{
+            wSelf.navigationController.navigationBar.barTintColor = LLHexColor(0xf6f6f6);
+            wSelf.title = wSelf.tableView.uiModel.headerTitle;
+        };
+        [_tableView addTarget:self action:@selector(llPaymentAction)];
+    }
+    return _tableView;
+}
+
+- (LLPayUtil *)signUtil {
+    if (!_signUtil) {
+        _signUtil = [LLPayUtil new];
+    }
+    return _signUtil;
+}
+
+- (NSMutableDictionary *)paymentInfo {
+    if (!_paymentInfo) {
+        _paymentInfo = [NSMutableDictionary dictionary];
+    }
+    return _paymentInfo;
+}
+
+@end

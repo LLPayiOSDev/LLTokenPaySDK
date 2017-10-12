@@ -1,0 +1,249 @@
+//
+//  LLTextField.m
+//  LianLianPay
+//
+//  Created by EvenLam on 2017/8/15.
+//  Copyright © 2017年 LianLianPay. All rights reserved.
+//
+
+#import "LLTextField.h"
+#import "LLPayUtil.h"
+#import "LLConsts.h"
+
+@implementation LLTextFieldModel
+
+- (instancetype)initWithKey: (NSString *)key {
+    self = [super init];
+    if (self) {
+        NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"LLInputFields" ofType:@"plist"];
+        NSArray *fieldArr = [NSArray arrayWithContentsOfFile:plistPath];
+        for (NSDictionary *field in fieldArr) {
+            if ([field[@"key"] isEqualToString: key]) {
+                [self setValuesForKeysWithDictionary:field];
+            }
+        }
+    }
+    return self;
+}
+
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key {
+    
+}
+
+@end
+
+@interface LLTextField () <UIPickerViewDelegate, UIPickerViewDataSource>
+
+@property (nonatomic, strong) LLTextFieldModel *model;
+@property (nonatomic, strong) CALayer *fieldLayer;
+@end
+
+
+@implementation LLTextField
+
+- (instancetype)initWithKey: (NSString *)key {
+    self = [super init];
+    if (self) {
+        self.key = key;
+        LLTextFieldModel *model = [[LLTextFieldModel alloc] initWithKey:key];
+        self.model = model;
+        [self setFieldWithModel:model];
+    }
+    return self;
+}
+
+- (void)hide {
+    [self resignFirstResponder];
+}
+
+- (BOOL)becomeFirstResponder {
+//    [self.layer addSublayer:self.fieldLayer];
+    UILabel *leftLb = ((UILabel *)self.leftView);
+    leftLb.font = [UIFont boldSystemFontOfSize:16];
+    return [super becomeFirstResponder];
+}
+
+- (BOOL)resignFirstResponder {
+//    [self.fieldLayer removeFromSuperlayer];
+    UILabel *leftLb = ((UILabel *)self.leftView);
+    leftLb.font = [UIFont systemFontOfSize:14];
+    if ([self.model.text isKindOfClass:[NSArray class]]) {
+        self.inputView = self.pickerView;
+    }
+    return [super resignFirstResponder];
+}
+
+- (CALayer *)fieldLayer {
+    if (!_fieldLayer) {
+        _fieldLayer = [[CALayer alloc] init];
+        _fieldLayer.backgroundColor = LLColor.CGColor;
+        _fieldLayer.frame = CGRectMake(0, self.frame.size.height - 5, self.frame.size.width - 10, 1.5);
+    }
+    return _fieldLayer;
+}
+
+- (CGRect)caretRectForPosition:(UITextPosition *)position {
+//    if ([self.model.text isKindOfClass:[NSArray class]]) {
+//        return CGRectZero;
+//    }
+    return [super caretRectForPosition:position];
+}
+
+- (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
+    if ([self.model.text isKindOfClass:[NSArray class]]) {
+        return NO;
+    }
+    return [super canPerformAction:action withSender:sender];
+    return YES;
+}
+
+- (void)reloadField {
+    [self setFieldWithModel:self.model];
+}
+
+- (void)setFieldWithModel: (LLTextFieldModel *)model {
+    self.frame = CGRectMake(18, 0, kWindowW - 18, 44);
+    self.placeholder = model.placeholder;
+    self.autocorrectionType = UITextAutocorrectionTypeNo;
+    self.keyboardType = model.keyboardType.integerValue;
+    self.clearButtonMode = UITextFieldViewModeWhileEditing;
+    self.returnKeyType = UIReturnKeyDone;
+    self.textColor = [UIColor blackColor];
+    self.font = [UIFont systemFontOfSize:14];
+    self.secureTextEntry = model.secure.boolValue;
+    self.borderStyle = UITextBorderStyleNone;
+    
+    NSString *text = [[NSUserDefaults standardUserDefaults] valueForKey:self.key];
+    if ([model.key isEqualToString:@"no_order"]) {
+        self.rightView = [self refreshBtn];
+        self.rightViewMode = UITextFieldViewModeAlways;
+    }
+    if (text.length > 0) {
+        self.text = text;
+        if ([model.text isKindOfClass:[NSArray class]]) {
+            NSArray *textArr = (NSArray *)model.text;
+            self.inputView = self.pickerView;
+            NSInteger index = [self indexForText:text];
+            if (index < textArr.count) {
+                [self.pickerView selectRow:index inComponent:0 animated:YES];
+            }
+        }
+    }else {
+        if ([model.text isKindOfClass:[NSArray class]]) {
+            self.inputView = self.pickerView;
+            self.text = model.text[0][@"field"];
+            [self.pickerView selectRow:0 inComponent:0 animated:YES];
+        }else {
+            self.text = model.text;
+        }
+    }
+    if (model.title) {
+        [self leftViewSetting:model.title];
+    }
+}
+
+- (UIButton *)refreshBtn {
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(0, 0, 40, 20);
+    [btn setTitle:@"刷新  " forState:UIControlStateNormal];
+    btn.titleLabel.font = [UIFont systemFontOfSize:14];
+    [btn setTitleColor:LLHexColor(0x00a0e9) forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(refreshOrder) forControlEvents:UIControlEventTouchUpInside];
+    return btn;
+}
+
+- (void)refreshOrder {
+    self.text = [NSString stringWithFormat:@"LL%@",[LLPayUtil timeStamp]];
+    [self cacheText];
+}
+
+- (void)leftViewSetting: (NSString *)title {
+    self.leftView = [self labelWithText:title width:@"国国国国国国"];//💩
+    self.leftViewMode = UITextFieldViewModeAlways;
+}
+
+- (void)rightViewSetting: (NSString *)title {
+    self.rightView = [self labelWithText:title width:@"刷新"];
+    self.rightViewMode = UITextFieldViewModeAlways;
+}
+
+- (UILabel *)labelWithText: (NSString *)text width:(NSString *)widthString{
+    CGFloat fontSize = [UIFont systemFontSize];
+    fontSize = 14;
+    NSString *modelTitle = widthString;
+    NSDictionary *strAttrbutes = @{NSFontAttributeName : [UIFont systemFontOfSize:fontSize], NSForegroundColorAttributeName : [UIColor redColor]};
+    CGRect newFrame = [text boundingRectWithSize:CGSizeMake(999, self.frame.size.height) options:NSStringDrawingUsesLineFragmentOrigin attributes:strAttrbutes context:nil];
+    CGRect newFrameB = [modelTitle boundingRectWithSize:CGSizeMake(999, self.frame.size.height) options:NSStringDrawingUsesLineFragmentOrigin attributes:strAttrbutes context:nil];
+    CGRect frame = newFrame.size.width > newFrameB.size.width ? newFrame : newFrameB;
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, frame.size.width + 8, self.frame.size.height)];
+    label.textColor = [UIColor blackColor];
+    label.text = text;
+    label.font = [UIFont systemFontOfSize:fontSize];
+    if ([self.model.mustPass isEqualToString:@"true"]) {
+        label.textColor = [UIColor redColor];
+    }else {
+        label.textColor = [UIColor darkTextColor];
+    }
+    label.adjustsFontSizeToFitWidth = YES;
+    return label;
+}
+
+- (void)cacheText {
+    [[NSUserDefaults standardUserDefaults] setValue:self.text forKey:self.key];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (UIPickerView *)pickerView {
+    if (!_pickerView) {
+        _pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 0, 300, 216)];
+        _pickerView.delegate = self;
+        _pickerView.dataSource = self;
+        _pickerView.backgroundColor = LLHexColor(0xf6f6f6);
+    }
+    return _pickerView;
+}
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    return ((NSArray *)self.model.text).count;
+}
+
+- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
+    UILabel *label = [self labelWithText:[((NSArray *)self.model.text) objectAtIndex:row][@"picker"] width:@"上岛咖啡盛开的积分速度快放假"];
+    label.textColor = [UIColor darkTextColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.font = [UIFont systemFontOfSize:15];
+    return label;
+}
+
+//- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+//    return [((NSArray *)self.model.text) objectAtIndex:row][@"picker"];
+//}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    NSArray *arr = (NSArray *)self.model.text;
+    NSDictionary *dic = [arr objectAtIndex:row];
+    if ([[dic valueForKey:@"picker"] isEqualToString:@"自定义"]) {
+        [self resignFirstResponder];
+        self.inputView = nil;
+        [self becomeFirstResponder];
+    }else {
+        self.text = [dic valueForKey:@"field"];
+        [self resignFirstResponder];
+    }
+}
+
+- (NSInteger)indexForText: (NSString *)text {
+    NSArray *arr = (NSArray *)self.model.text;
+    for (NSDictionary *dic in arr) {
+        if ([dic[@"field"] isEqualToString:text]) {
+            return [arr indexOfObject:dic];
+        }
+    }
+    return 0;
+}
+
+@end
