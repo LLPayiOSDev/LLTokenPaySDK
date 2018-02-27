@@ -1,6 +1,5 @@
 # LLTokenPaySDK
 
-[![CI Status](http://img.shields.io/travis/LLPayiOSDev/LLTokenPaySDK.svg?style=flat)](https://travis-ci.org/LLPayiOSDev/LLTokenPaySDK)
 [![Version](https://img.shields.io/cocoapods/v/LLTokenPaySDK.svg?style=flat)](http://cocoapods.org/pods/LLTokenPaySDK)
 [![License](https://img.shields.io/cocoapods/l/LLTokenPaySDK.svg?style=flat)](http://cocoapods.org/pods/LLTokenPaySDK)
 [![Platform](https://img.shields.io/cocoapods/p/LLTokenPaySDK.svg?style=flat)](http://cocoapods.org/pods/LLTokenPaySDK)
@@ -8,8 +7,6 @@
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
-## Requirements
 
 ## Installation
 
@@ -28,17 +25,30 @@ LLPayiOSDev, iosdev@yintong.com.cn
 
 1. 导入头文件 #import <LLTokenPaySDK/LLTokenPaySDK.h>
 2. 由服务端创单获取到 Token， iOS 客户端使用此Token以及其他必传参数调用SDK
+
 ```
 NSDictionary *orderParam = @{*****}; // 创建订单
 self.sdk = [LLTokenPaySDK sharedSdk]; // 创建SDK
 NSMutableDictionary *paymentInfo = [NSMutableDictionary dictionary]; //包含Token字段的字典
 //组织paymentInfo
 [[LLTokenPaySDK sharedSdk] payApply:self.currentPaymentInfo
-inVC:self
-completion:^(LLPayResult result, NSDictionary *dic) {
-//根据result和dic作出不同处理
+									 inVC:self
+   							  completion:^(LLPayResult result, NSDictionary *dic) {
+					//根据result和dic作出不同处理
 }];
 ```
+
+
+### 请求参数说明
+|字段说明	|字段名	|是否必须	|类型	|描述	|
+|------|------|------|------|------|
+|商户编号|oid_partner|是|String|商户编号是商户在连连支付支付平台上开设的商户号码，为18位数字，如：201304121000001004|
+|商户用户唯一编号|user_id|是|String|该用户在商户系统中的唯一编号，要求是该编号在商户系统中唯一标识该用户|
+|授权码|token|是|String|支付授权令牌|
+|商户唯一订单号|no_order|是|String|商户唯一订单号|
+|交易金额|money_order|是|String|该笔订单的资金总额，单位为RMB-元。大于0的数字，精确到小数点后两位。如：49.65|
+
+
 
 ### LLTokenPaySDK可配置部分
 ---

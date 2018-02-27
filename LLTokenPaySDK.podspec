@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
   s.name             = 'LLTokenPaySDK'
-  s.version          = '3.2'
+  s.version          = '3.3'
   s.summary          = 'LLTokenPaySDK'
 
   s.description      = <<-DESC
-LLTokenPaySDK是一个支付标记化的SDK， 支持连连支付首创的认证支付， 以及快捷支付、分期付、基金支付等支付方式， 支持短信、TouchID、FaceID等验证方式
+LLTokenPaySDK是一个支付标记化的SDK， 支持连连支付的认证支付、快捷支付、分期付、基金支付等支付方式， 支持短信、TouchID、FaceID等验证方式
                        DESC
 
   s.homepage         = 'https://github.com/LLPayiOSDev/LLTokenPaySDK'

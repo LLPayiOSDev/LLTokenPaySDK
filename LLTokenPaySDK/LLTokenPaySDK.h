@@ -19,17 +19,14 @@ typedef enum LLPayResult {
     kLLPayResultRequestingCancel, // 授权支付后取消(支付请求已发送)
 } LLPayResult;
 
-extern const NSString *const kLLPaySDKBuildVersion;
-extern const NSString *const kLLPaySDKVersion;
-
 @interface LLTokenPaySDK : NSObject
 
 typedef void(^CompletionHandler)(LLPayResult result, NSDictionary *dic);
 
 /**
- *  单例sdk add:20151106
+ *  单例
  *
- *  @return 返回LLPaySdk的单例对象
+ *  @return 返回LLTokenPaySDK的单例对象
  */
 + (LLTokenPaySDK *)sharedSdk;
 
@@ -62,6 +59,14 @@ typedef void(^CompletionHandler)(LLPayResult result, NSDictionary *dic);
  *  @param isTestServer YES测试环境，NO正式环境
  */
 + (void)switchToTestServer:(BOOL)isTestServer;
+
+
+/**
+ 获取SDK当前版本
+
+ @return 版本号
+ */
++ (NSString *)getSDKVersion;
 
 @end
 
