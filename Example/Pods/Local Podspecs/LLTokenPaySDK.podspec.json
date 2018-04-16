@@ -1,8 +1,8 @@
 {
   "name": "LLTokenPaySDK",
-  "version": "3.2",
+  "version": "3.3.1",
   "summary": "LLTokenPaySDK",
-  "description": "LLTokenPaySDK是一个支付标记化的SDK， 支持连连支付首创的认证支付， 以及快捷支付、分期付、基金支付等支付方式， 支持短信、TouchID、FaceID等验证方式",
+  "description": "LLTokenPaySDK是一个支付标记化的SDK， 支持连连支付的认证支付、快捷支付、分期付、基金支付等支付方式， 支持短信、TouchID、FaceID等验证方式",
   "homepage": "https://github.com/LLPayiOSDev/LLTokenPaySDK",
   "license": {
     "type": "MIT",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/LLPayiOSDev/LLTokenPaySDK.git",
-    "tag": "3.2"
+    "tag": "3.3.1"
   },
   "platforms": {
     "ios": "7.0"

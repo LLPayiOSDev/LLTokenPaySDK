@@ -1,5 +1,7 @@
 CHANGE LIST
 ======
+## 3.3.1 build 20180416
+	- bug修复
 
 ## 3.3 build 20180226
     - 适配iOS11

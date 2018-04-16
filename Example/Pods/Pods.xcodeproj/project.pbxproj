@@ -16,9 +16,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		03269018B1AE7CB56628392B8B99C661 /* LLTokenPaySDK.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = LLTokenPaySDK.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		09C5D1CD97C386BF0F123216B333E21E /* Pods-LLTokenPaySDK_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-LLTokenPaySDK_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		156226826A0D4D5999E95DEFC26372FF /* Pods-LLTokenPaySDK_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LLTokenPaySDK_Tests-dummy.m"; sourceTree = "<group>"; };
 		239375C24410BB6BE60607EFEBB8DF91 /* Pods-LLTokenPaySDK_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LLTokenPaySDK_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		29F5DB693A63D96151B32816F9613FB1 /* LLTokenPaySDK.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LLTokenPaySDK.h; path = LLTokenPaySDK/LLTokenPaySDK.h; sourceTree = "<group>"; };
+		2A328BFF6A857B2222932821B93EE8E8 /* libLLTokenPaySDK.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libLLTokenPaySDK.a; path = LLTokenPaySDK/libLLTokenPaySDK.a; sourceTree = "<group>"; };
 		2EE382065A825EE20B5F3FABFA638972 /* Pods-LLTokenPaySDK_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LLTokenPaySDK_Example-frameworks.sh"; sourceTree = "<group>"; };
 		32B9B0B93421E2D792356057A4592107 /* Pods-LLTokenPaySDK_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-LLTokenPaySDK_Tests-resources.sh"; sourceTree = "<group>"; };
 		3F9E1B90B365DF25FB3CC913CAF311F7 /* Pods-LLTokenPaySDK_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-LLTokenPaySDK_Example.modulemap"; sourceTree = "<group>"; };
@@ -26,19 +29,19 @@
 		5F36ACF744372448D6AF61B7E24A7B39 /* Pods-LLTokenPaySDK_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-LLTokenPaySDK_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		65DD1507513FB78B7843612C1D67A034 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		6D410D15EFB8185C251C8EC96B84352C /* LLTokenPaySDK.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LLTokenPaySDK.h; path = LLTokenPaySDK/LLTokenPaySDK.h; sourceTree = "<group>"; };
+		68CE7E4FA97D346D31A51578E7CEF575 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		6E1A242528F45FFE1E00BCADFB112E0B /* Pods-LLTokenPaySDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LLTokenPaySDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		725D5A9550F29BE1846D7EC5A3898822 /* Pods_LLTokenPaySDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_LLTokenPaySDK_Example.framework; path = "Pods-LLTokenPaySDK_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		778E3471A9B098FDD3CEF8574D7198D1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C953887C0B265C0AB18B0F71A315E8B /* Pods-LLTokenPaySDK_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LLTokenPaySDK_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		8CE64591B39A1C78B956FA7005749A17 /* libLLTokenPaySDK.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libLLTokenPaySDK.a; path = LLTokenPaySDK/libLLTokenPaySDK.a; sourceTree = "<group>"; };
 		903AC055A90DCF8830E6939C445A3128 /* Pods-LLTokenPaySDK_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LLTokenPaySDK_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		991BD0C5509064CA1E4015934261E90E /* Pods-LLTokenPaySDK_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LLTokenPaySDK_Example-dummy.m"; sourceTree = "<group>"; };
 		A76F7BFF2C0DC33427A2F531F55FFF8C /* Pods-LLTokenPaySDK_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-LLTokenPaySDK_Tests-umbrella.h"; sourceTree = "<group>"; };
 		A79533C76BBF7928A4FE031F1DAAACD8 /* Pods_LLTokenPaySDK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_LLTokenPaySDK_Tests.framework; path = "Pods-LLTokenPaySDK_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA3743E948E8365C9DDF10CCC71AAF45 /* walletResources.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = walletResources.bundle; path = LLTokenPaySDK/Assets/walletResources.bundle; sourceTree = "<group>"; };
 		BA59FD209299D5FDFA74A230FC279651 /* Pods-LLTokenPaySDK_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LLTokenPaySDK_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		D776B949DEA53C23A17D671DE47085EB /* walletResources.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = walletResources.bundle; path = LLTokenPaySDK/Assets/walletResources.bundle; sourceTree = "<group>"; };
+		D6ED73C53DE2F82E87B56B9D11559102 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		E1536DA98EA199F9B8060B0EC64481B8 /* Pods-LLTokenPaySDK_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-LLTokenPaySDK_Tests.modulemap"; sourceTree = "<group>"; };
 		EACDFE6FE88722F08F86DF716BEDEFC7 /* Pods-LLTokenPaySDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LLTokenPaySDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		FA364651912FCFF7D59EAEDFD671D483 /* Pods-LLTokenPaySDK_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-LLTokenPaySDK_Example-umbrella.h"; sourceTree = "<group>"; };
@@ -74,6 +77,22 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		299B99457F577EAA06F83D2CA28216F7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AA3743E948E8365C9DDF10CCC71AAF45 /* walletResources.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		300244AE0BD2BFD7806E03EF89A91980 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2A328BFF6A857B2222932821B93EE8E8 /* libLLTokenPaySDK.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		63049E5DFF6552E5779637472F96D60C /* Pods-LLTokenPaySDK_Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,22 +115,19 @@
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				BA74A91DF3F21DB0B96BBF883E33477E /* Development Pods */,
+				7F965673C453978ED5BA4DC8973D745A /* Development Pods */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
 				12A7302BE34AA8D12F1B2F72B1823A4F /* Products */,
 				CE7F89B34EDB5AE05744B75EE0D352E8 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		A1E51425A9E1585D92C4FEE3459D9392 /* LLTokenPaySDK */ = {
+		7F965673C453978ED5BA4DC8973D745A /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6D410D15EFB8185C251C8EC96B84352C /* LLTokenPaySDK.h */,
-				F0F42CC32E08F5AA5A04AB61BBEF2199 /* Frameworks */,
-				FE18CC5409E51DFABB572A56DB5B5871 /* Resources */,
+				E1415DB9A48E0BD17A3A21B0DBA3B004 /* LLTokenPaySDK */,
 			);
-			name = LLTokenPaySDK;
-			path = ../..;
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 		B2F71BE674A52A48B8C98F51169F5CD5 /* Pods-LLTokenPaySDK_Example */ = {
@@ -132,12 +148,14 @@
 			path = "Target Support Files/Pods-LLTokenPaySDK_Example";
 			sourceTree = "<group>";
 		};
-		BA74A91DF3F21DB0B96BBF883E33477E /* Development Pods */ = {
+		B66DF685488D5BC09D658E259B51A3CB /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				A1E51425A9E1585D92C4FEE3459D9392 /* LLTokenPaySDK */,
+				68CE7E4FA97D346D31A51578E7CEF575 /* LICENSE */,
+				03269018B1AE7CB56628392B8B99C661 /* LLTokenPaySDK.podspec */,
+				D6ED73C53DE2F82E87B56B9D11559102 /* README.md */,
 			);
-			name = "Development Pods";
+			name = Pod;
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
@@ -165,20 +183,16 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		F0F42CC32E08F5AA5A04AB61BBEF2199 /* Frameworks */ = {
+		E1415DB9A48E0BD17A3A21B0DBA3B004 /* LLTokenPaySDK */ = {
 			isa = PBXGroup;
 			children = (
-				8CE64591B39A1C78B956FA7005749A17 /* libLLTokenPaySDK.a */,
+				29F5DB693A63D96151B32816F9613FB1 /* LLTokenPaySDK.h */,
+				300244AE0BD2BFD7806E03EF89A91980 /* Frameworks */,
+				B66DF685488D5BC09D658E259B51A3CB /* Pod */,
+				299B99457F577EAA06F83D2CA28216F7 /* Resources */,
 			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		FE18CC5409E51DFABB572A56DB5B5871 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				D776B949DEA53C23A17D671DE47085EB /* walletResources.bundle */,
-			);
-			name = Resources;
+			name = LLTokenPaySDK;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
